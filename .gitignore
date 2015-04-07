@@ -1,6 +1,8 @@
 .idea
 /bootstrap/compiled.php
 /vendor
+.idea
+borrar.js
 composer.phar
 composer.lock
 .DS_Store
