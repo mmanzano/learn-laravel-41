@@ -13,6 +13,7 @@ class CandidatesController extends BaseController {
         public function category($slug, $id)
         {
             $category = $this->categoryRepo->find($id);
-            dd($category);
+
+            return View::make('candidates/category', compact('category'));
         }
 }
