@@ -2,10 +2,10 @@
 
 use HireMe\Entities\Candidate;
 
-class CandidateRepo {
+class CandidateRepo extends BaseRepo {
 
-    public function find($id)
+    public function getModel()
     {
-        return Candidate::find($id);
+        return new Candidate;
     }
 }
