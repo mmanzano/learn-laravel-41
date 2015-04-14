@@ -3,6 +3,9 @@
 // Composer: "fzaninotto/faker": "v1.3.0"
 use Faker\Factory as Faker;
 
+use HireMe\Entities\User;
+use HireMe\Entities\Candidate;
+
 class CandidateTableSeeder extends Seeder {
 
 	public function run()
