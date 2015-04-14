@@ -19,7 +19,7 @@
                 <td>{{ $candidate->job_type }}</td>
                 <td>{{ $candidate->description }}</td>
                 <td width="50">
-                    <a href="" class="btn btn-info">
+                    <a href="{{ route('candidate', [$candidate->slug, $candidate->id]) }}" class="btn btn-info">
                         Ver
                     </a>
                 </td>

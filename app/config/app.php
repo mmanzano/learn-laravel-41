@@ -107,7 +107,7 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
         'Way\Generators\GeneratorsServiceProvider',
-
+        'Barryvdh\Debugbar\ServiceProvider',
 	),
 
 	/*

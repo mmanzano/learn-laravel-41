@@ -1,19 +1,31 @@
 <?php
 
 use HireMe\Repositories\CategoryRepo;
+use HireMe\Repositories\CandidateRepo;
 
 class CandidatesController extends BaseController {
 
-        protected $categoryRepo;
+    protected $categoryRepo;
+    protected $candidateRepo;
 
-        public function __construct(CategoryRepo $categoryRepo)
-        {
-            $this->categoryRepo = $categoryRepo;
-        }
-        public function category($slug, $id)
-        {
-            $category = $this->categoryRepo->find($id);
+    public function __construct(CategoryRepo $categoryRepo,
+                                CandidateRepo $candidateRepo)
+    {
+        $this->categoryRepo = $categoryRepo;
+        $this->candidateRepo = $candidateRepo;
+    }
 
-            return View::make('candidates/category', compact('category'));
-        }
+    public function category($slug, $id)
+    {
+        $category = $this->categoryRepo->find($id);
+
+        return View::make('candidates/category', compact('category'));
+    }
+
+    public function show($slug, $id)
+    {
+        $candidate = $this->candidateRepo->find($id);
+
+        dd($candidate);
+    }
 }
