@@ -26,6 +26,6 @@ class CandidatesController extends BaseController {
     {
         $candidate = $this->candidateRepo->find($id);
 
-        dd($candidate);
+        return View::make('candidates/show', compact('candidate'));
     }
 }
