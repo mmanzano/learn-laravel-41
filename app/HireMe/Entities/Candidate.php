@@ -7,4 +7,9 @@ class Candidate extends \Eloquent {
     {
         return $this->hasOne('HireMe\Entities\User', 'id', 'id');
     }
+
+    public function category()
+    {
+        return $this->belongsTo('HireMe\Entities\Category');
+	}
 }
