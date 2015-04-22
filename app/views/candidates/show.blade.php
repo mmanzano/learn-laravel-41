@@ -12,7 +12,7 @@
             </a>
         </p>
 
-        <p>Tipo de trabajo: {{ $candidate->job_type }}</p>
+        <p>Tipo de trabajo: {{ $candidate->job_type_title }}</p>
 
         <p>
             Website:

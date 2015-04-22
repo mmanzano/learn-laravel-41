@@ -16,7 +16,7 @@
         @foreach($category->candidates as $candidate)
             <tr>
                 <td>{{ $candidate->user->full_name }}</td>
-                <td>{{ $candidate->job_type }}</td>
+                <td>{{ $candidate->job_type_title }}</td>
                 <td>{{ $candidate->description }}</td>
                 <td width="50">
                     <a href="{{ route('candidate', [$candidate->slug, $candidate->id]) }}" class="btn btn-info">
