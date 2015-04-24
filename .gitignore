@@ -2,7 +2,6 @@
 /bootstrap/compiled.php
 /vendor
 .idea
-.idea/workspace.xml
 borrar.js
 composer.phar
 composer.lock
