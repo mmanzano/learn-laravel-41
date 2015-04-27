@@ -2,8 +2,8 @@
 
 return [
     'job_types' => [
-        'full'      => 'Tiempo completo',
-        'partial'   => 'Tiempo parcial',
+        'full'      => 'Full Time',
+        'partial'   => 'Partial Time',
         'freelance' => 'Freelance'
     ]
 ];
