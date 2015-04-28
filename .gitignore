@@ -1,7 +1,7 @@
 .idea
 /bootstrap/compiled.php
 /vendor
-.idea
+.idea/
 borrar.js
 composer.phar
 composer.lock
