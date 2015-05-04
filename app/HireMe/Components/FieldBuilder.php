@@ -99,4 +99,15 @@ class FieldBuilder {
 
         return \View::make($template, compact('name', 'label', 'control', 'error'));
     }
+
+    public function password($name, $attributes = array())
+    {
+        return $this->input('password', $name, null, $attributes);
+    }
+
+    public function __call($method, $params)
+    {
+        array_unshift($params, $method);
+        return call_user_func_array([$this, 'input'], $params);
+    }
 }
