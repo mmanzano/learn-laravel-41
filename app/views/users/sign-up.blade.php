@@ -7,13 +7,9 @@
         <div class="col-md-6">
             <h1>Sign up</h1>
 
-            {{ Form::open(['route'=> 'register', 'method' => 'POST', 'role' => 'form', 'novalidate'])}}
+            {{ Form::open(['route'=> 'register', 'method' => 'POST', 'role' => 'form', 'novalidate']) }}
 
-                <div class="form-group">
-                    {{ Form::label('full_name', 'Nombre completo') }}
-                    {{ Form::text('full_name', null, ['class' => 'form-control']) }}
-                    {{ $errors->first('full_name', '<p class="error_message">:message</p>') }}
-                </div>
+            {{ Field::input('text', 'full_name') }}
 
                 <div class="form-group">
                     {{ Form::label('email', 'Correo') }}

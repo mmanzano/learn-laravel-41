@@ -13,6 +13,7 @@ class UsersController extends BaseController {
     {
         $this->candidateRepo = $candidateRepo;
     }
+
     public function signUp()
     {
         return View::make('users/sign-up');
