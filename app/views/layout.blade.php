@@ -38,15 +38,38 @@
           <a class="navbar-brand" href="#">Project name</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
+            @if (Auth::check())
+                <ul class="nav navbar-nav pull-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <span class="icon icon-wh i-profile"></span>{{ Auth::user()->full_name }} <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@{{ route('profile') }}">Editar perfil</a></li>
+                            <li><a href="@{{ route('account') }}">Editar usuario</a></li>
+                            <li><a href="{{ route('logout') }}">Salir</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            @else
+              {{ Form::open(['route' => 'login', 'method' => 'POST', 'role' => 'form', 'class' => 'navbar-form navbar-right' ]) }}
+                @if (Session::has('login_error'))
+                    <span class="label label-danger">Credenciales no válidas</span>
+                @endif
+                <div class="form-group">
+                    {{ Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Email']) }}
+                </div>
+                <div class="form-group">
+                    {{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'Password']) }}
+                </div>
+                <div class="checkbox">
+                    <label class="remember-me">
+                        {{ Form::checkbox('remember') }} Recordarme
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-success">Sign in</button>
+              {{ Form::close() }}
+            @endif
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
