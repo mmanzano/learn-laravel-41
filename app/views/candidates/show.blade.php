@@ -23,7 +23,7 @@
 
         <h4>Descripción</h4>
 
-        <p>{{ $candidate->description }}</p>
+        <p>{{{ $candidate->description }}}</p>
 
     </div> <!-- /container -->
 

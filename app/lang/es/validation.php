@@ -98,7 +98,12 @@ return array(
         'full_name' => 'nombre completo',
         'email'     => 'correo electronico',
         'password'  => 'clave',
-        'password_confirmation' => 'repita su clave'
+        'password_confirmation' => 'repita su clave',
+        'website_url' => 'Dirección de tu web',
+        'description' => 'Descripción',
+        'job_type' => 'Tipo de trabajo',
+        'category_id' => 'Categoría',
+        'available' => 'Disponible'
     ),
 
 );
