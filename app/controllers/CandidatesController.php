@@ -3,7 +3,8 @@
 use HireMe\Repositories\CategoryRepo;
 use HireMe\Repositories\CandidateRepo;
 
-class CandidatesController extends BaseController {
+class CandidatesController extends BaseController
+{
 
     protected $categoryRepo;
     protected $candidateRepo;
@@ -19,6 +20,8 @@ class CandidatesController extends BaseController {
     {
         $category = $this->categoryRepo->find($id);
 
+        $this->notFoundUnless($category);
+
         return View::make('candidates/category', compact('category'));
     }
 
@@ -26,6 +29,9 @@ class CandidatesController extends BaseController {
     {
         $candidate = $this->candidateRepo->find($id);
 
+        $this->notFoundUnless($candidate);
+
         return View::make('candidates/show', compact('candidate'));
     }
+
 }
