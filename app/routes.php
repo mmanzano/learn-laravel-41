@@ -17,18 +17,23 @@ Route::get('/candidates/{slug}/{id}',['as' => 'category', 'uses' => 'CandidatesC
 
 Route::get('{slug}/{id}',['as' => 'candidate', 'uses' => 'CandidatesController@show']);
 
-Route::get('sign-up', ['as' => 'sign_up', 'uses' => 'UsersController@signUp']);
+// Rutas usuario anónimo
+Route::group(['before' => 'guest'], function(){
+    Route::get('sign-up', ['as' => 'sign_up', 'uses' => 'UsersController@signUp']);
 
-Route::post('register', ['as' => 'register', 'uses' => 'UsersController@register']);
+    Route::post('register', ['as' => 'register', 'uses' => 'UsersController@register']);
 
-Route::post('login', ['as' => 'login', 'uses' => 'AuthController@login']);
+    Route::post('login', ['as' => 'login', 'uses' => 'AuthController@login']);
+});
 
-Route::get('logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
+// Rutas usuario logueado
+Route::group(['before' => 'auth'], function (){
+    Route::get('account', ['as' => 'account', 'uses' => 'UsersController@account']);
+    Route::put('account', ['as' => 'update_account', 'uses' => 'UsersController@updateAccount']);
 
-// Forms
+    Route::get('profile', ['as' => 'profile', 'uses' => 'UsersController@profile']);
+    Route::put('profile', ['as' => 'update_profile', 'uses' => 'UsersController@updateProfile']);
 
-Route::get('account', ['as' => 'account', 'uses' => 'UsersController@account']);
-Route::put('account', ['as' => 'update_account', 'uses' => 'UsersController@updateAccount']);
+    Route::get('logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
+});
 
-Route::get('profile', ['as' => 'profile', 'uses' => 'UsersController@profile']);
-Route::put('profile', ['as' => 'update_profile', 'uses' => 'UsersController@updateProfile']);
