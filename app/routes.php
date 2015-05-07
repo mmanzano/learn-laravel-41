@@ -28,12 +28,14 @@ Route::group(['before' => 'guest'], function(){
 
 // Rutas usuario logueado
 Route::group(['before' => 'auth'], function (){
-    Route::get('account', ['as' => 'account', 'uses' => 'UsersController@account']);
-    Route::put('account', ['as' => 'update_account', 'uses' => 'UsersController@updateAccount']);
 
-    Route::get('profile', ['as' => 'profile', 'uses' => 'UsersController@profile']);
-    Route::put('profile', ['as' => 'update_profile', 'uses' => 'UsersController@updateProfile']);
+    require(__DIR__ . '/routes/auth.php');
 
-    Route::get('logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
+    Route::group(['before' => 'is_admin'], function(){
+
+        require(__DIR__ . '/routes/admin.php');
+
+    });
 });
+
 
