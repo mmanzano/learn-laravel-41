@@ -38,4 +38,5 @@ Route::group(['before' => 'auth'], function (){
     });
 });
 
-
+//Rutas para la parte de integración con Angular:
+require(__DIR__ . '/routes/search.php');
